@@ -1,0 +1,31 @@
+{
+  "questions": {
+    "full_name": {
+      "text": "What is your full name?",
+      "answer_type": "text",
+      "required": true
+    },
+    "email": {
+      "text": "What is your email address?",
+      "answer_type": "text",
+      "required": true
+    },
+    "verify": {
+      "text": "We've sent you an email",
+      "helper": "Enter the 6 digit security code",
+      "answer_type": "text",
+      "required": true
+    },
+    "professional_relationship": {
+      "text": "What is the professional relationship with the company or person suspected of breaching sanctions?",
+      "answer_type": "multiple_choice",
+      "choices": [
+        "I'm an owner, officer or employee of the company, or I am the person",
+        "I do not work for the company, but I'm acting on their behalf to make a voluntary declaration",
+        "I work for a third party with a legal responsibility to make a mandatory declaration",
+        "I do not have a professional relationship with the company or person or I no longer have a professional relationship with them"
+      ],
+      "required": true
+    }
+  }
+}

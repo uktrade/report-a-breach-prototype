@@ -33,7 +33,10 @@ class CompanyNonUk(models.Model):
     class Meta:
         managed = False
         db_table = "company_non_uk"
-        db_table_comment = "Needs to create an empty  address line with one character. Otherwise contact in sql becomes null\n{semantic:companies}"
+        db_table_comment = (
+            "Needs to create an empty  address line with one character. "
+            "Otherwise contact in sql becomes null. {semantic:companies}"
+        )
 
 
 class CompanyRole(models.Model):
@@ -45,7 +48,7 @@ class CompanyRole(models.Model):
     class Meta:
         managed = False
         db_table = "company_role"
-        db_table_comment = "the role in the breach. \n{semantic:companies}"
+        db_table_comment = "the role in the breach. {semantic:companies}"
 
 
 class CompanyType(models.Model):
@@ -58,7 +61,10 @@ class CompanyType(models.Model):
     class Meta:
         managed = False
         db_table = "company_type"
-        db_table_comment = "the type indicating whether a company is in company house, uk companies not in company house,  non uk companies.\n{semantic:companies}"
+        db_table_comment = (
+            "the type indicating whether a company is in company house, "
+            "uk companies not in company house,  non uk companies. {semantic:companies}"
+        )
 
 
 class CompanyUkCh(models.Model):
@@ -89,9 +95,8 @@ class CompanyUkNonCh(models.Model):
 
 
 class Content(models.Model):
-    question = models.OneToOneField(
-        "Question", models.DO_NOTHING, primary_key=True
-    )  # The composite primary key (question_id, report_id) found, that is not supported. The first column is selected.
+    # The composite primary key (question_id, report_id) found, that is not supported. The first column is selected.
+    question = models.OneToOneField("Question", models.DO_NOTHING, primary_key=True)
     report = models.ForeignKey("Report", models.DO_NOTHING)
     creation_date = models.DateField()
     json_answer = models.TextField()  # This field type is a guess.
@@ -105,9 +110,9 @@ class Content(models.Model):
 
 
 class Document(models.Model):
-    report = models.OneToOneField(
-        "Report", models.DO_NOTHING, primary_key=True
-    )  # The composite primary key (report_id, ref, creation_date) found, that is not supported. The first column is selected.
+    # The composite primary key (report_id, ref, creation_date) found, that is not supported.
+    # The first column is selected.
+    report = models.OneToOneField("Report", models.DO_NOTHING, primary_key=True)
     ref = models.IntegerField()
     creation_date = models.DateField()
     path = models.CharField(max_length=255)
@@ -130,9 +135,8 @@ class JsonSchema(models.Model):
 
 
 class OtherRegime(models.Model):
-    regime = models.OneToOneField(
-        "Regime", models.DO_NOTHING, primary_key=True
-    )  # The composite primary key (regime_id, report_id) found, that is not supported. The first column is selected.
+    # The composite primary key (regime_id, report_id) found, that is not supported. The first column is selected.
+    regime = models.OneToOneField("Regime", models.DO_NOTHING, primary_key=True)
     description = models.CharField(max_length=100)
     report = models.ForeignKey("Report", models.DO_NOTHING)
 
@@ -153,7 +157,10 @@ class Question(models.Model):
     class Meta:
         managed = False
         db_table = "question"
-        db_table_comment = "questions asked to the reporters.  We use JSON to model the answers. It is simplifies the answers and model. "
+        db_table_comment = (
+            "questions asked to the reporters.  We use JSON to model the answers. "
+            "It simplifies the answers and model. "
+        )
 
 
 class Regime(models.Model):
@@ -177,7 +184,10 @@ class Regime(models.Model):
     class Meta:
         managed = False
         db_table = "regime"
-        db_table_comment = "List of regime and countries under trading sanctions.  This table refers to legislation with a start and end date. "
+        db_table_comment = (
+            "List of regime and countries under trading sanctions.  "
+            "This table refers to legislation with a start and end date. "
+        )
 
 
 class Relationship(models.Model):
@@ -209,9 +219,9 @@ class Report(models.Model):
 
 
 class ReportCompany(models.Model):
-    report = models.OneToOneField(
-        Report, models.DO_NOTHING, primary_key=True
-    )  # The composite primary key (report_id, company_id, company_role_id) found, that is not supported. The first column is selected.
+    # The composite primary key (report_id, company_id, company_role_id) found, that is not supported.
+    # The first column is selected.
+    report = models.OneToOneField(Report, models.DO_NOTHING, primary_key=True)
     company = models.ForeignKey(Company, models.DO_NOTHING)
     company_role = models.ForeignKey(CompanyRole, models.DO_NOTHING)
 
@@ -222,9 +232,9 @@ class ReportCompany(models.Model):
 
 
 class ReportReporter(models.Model):
-    report = models.OneToOneField(
-        Report, models.DO_NOTHING, primary_key=True
-    )  # The composite primary key (report_id, reporter_id, relationship_id) found, that is not supported. The first column is selected.
+    # The composite primary key (report_id, reporter_id, relationship_id) found, that is not supported.
+    # The first column is selected.
+    report = models.OneToOneField(Report, models.DO_NOTHING, primary_key=True)
     reporter = models.ForeignKey("Reporter", models.DO_NOTHING)
     relationship = models.ForeignKey(Relationship, models.DO_NOTHING)
 
@@ -263,9 +273,9 @@ class Reporter(models.Model):
 
 
 class VerificationCode(models.Model):
-    reporter = models.OneToOneField(
-        Reporter, models.DO_NOTHING, primary_key=True
-    )  # The composite primary key (reporter_id, creation_date_time) found, that is not supported. The first column is selected.
+    # The composite primary key (reporter_id, creation_date_time) found, that is not supported.
+    # The first column is selected.
+    reporter = models.OneToOneField(Reporter, models.DO_NOTHING, primary_key=True)
     creation_date_time = models.DateField()
     expiry_date_time = models.DateField()
     succesful_verification_date = models.DateField()
