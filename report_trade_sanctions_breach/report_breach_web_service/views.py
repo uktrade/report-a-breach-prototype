@@ -16,7 +16,8 @@ from .forms import NameForm
 from .forms import ProfessionalRelationshipForm
 from .forms import StartForm
 from .forms import SummaryForm
-from .models import BreachDetails
+
+# from .models import BreachDetails
 from .notifier import send_mail
 
 load_dotenv()
@@ -192,13 +193,13 @@ class SummaryView(FormView):
         reporter_data = self.request.session.get("breach_details_instance")
         reference_id = reporter_data["report_id"].split("-")[0].upper()
         reporter_data["reporter_confirmation_id"] = reference_id
-        self.instance = BreachDetails(report_id=reporter_data["report_id"])
-        self.instance.reporter_email_address = reporter_data["reporter_email_address"]
-        self.instance.reporter_full_name = reporter_data["reporter_full_name"]
-        self.instance.reporter_professional_relationship = reporter_data[
-            "reporter_professional_relationship"
-        ]
-        self.instance.save()
+        # self.instance = BreachDetails(report_id=reporter_data["report_id"])
+        # self.instance.reporter_email_address = reporter_data["reporter_email_address"]
+        # self.instance.reporter_full_name = reporter_data["reporter_full_name"]
+        # self.instance.reporter_professional_relationship = reporter_data[
+        #     "reporter_professional_relationship"
+        # ]
+        # self.instance.save()
         self.request.session["breach_details_instance"] = reporter_data
         return super().form_valid(form)
 

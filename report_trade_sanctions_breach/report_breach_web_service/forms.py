@@ -6,7 +6,8 @@ from django import forms
 from django.utils.safestring import mark_safe
 
 from .constants import PROFESSIONAL_RELATIONSHIP_CHOICES
-from .models import BreachDetails
+
+# from .models import BreachDetails
 
 
 class StartForm(forms.ModelForm):
@@ -15,13 +16,13 @@ class StartForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.layout = Layout(Button("start now", "Start now"))
 
-    class Meta:
-        model = BreachDetails
-        exclude = [
-            "reporter_full_name",
-            "reporter_email_address",
-            "reporter_professional_relationship",
-        ]
+    # class Meta:
+    #     model = BreachDetails
+    #     exclude = [
+    #         "reporter_full_name",
+    #         "reporter_email_address",
+    #         "reporter_professional_relationship",
+    #     ]
 
 
 class NameForm(forms.ModelForm):
@@ -37,9 +38,9 @@ class NameForm(forms.ModelForm):
         self.helper.label_size = Size.MEDIUM
         self.helper.layout = Layout("reporter_full_name", Button("continue", "Continue"))
 
-    class Meta:
-        model = BreachDetails
-        fields = ["reporter_full_name"]
+    # class Meta:
+    #     model = BreachDetails
+    #     fields = ["reporter_full_name"]
 
 
 class EmailForm(forms.ModelForm):
@@ -55,9 +56,9 @@ class EmailForm(forms.ModelForm):
         self.helper.label_size = Size.MEDIUM
         self.helper.layout = Layout("reporter_email_address", Button("continue", "Continue"))
 
-    class Meta:
-        model = BreachDetails
-        fields = ["reporter_email_address"]
+    # class Meta:
+    #     model = BreachDetails
+    #     fields = ["reporter_email_address"]
 
 
 class EmailVerifyForm(forms.ModelForm):
@@ -74,13 +75,13 @@ class EmailVerifyForm(forms.ModelForm):
         self.helper.label_size = Size.MEDIUM
         self.helper.layout = Layout("reporter_verify_email", Button("continue", "Continue"))
 
-    class Meta:
-        model = BreachDetails
-        exclude = [
-            "reporter_full_name",
-            "reporter_email_address",
-            "reporter_professional_relationship",
-        ]
+    # class Meta:
+    #     model = BreachDetails
+    #     exclude = [
+    #         "reporter_full_name",
+    #         "reporter_email_address",
+    #         "reporter_professional_relationship",
+    #     ]
 
 
 class ProfessionalRelationshipForm(forms.ModelForm):
@@ -103,9 +104,9 @@ class ProfessionalRelationshipForm(forms.ModelForm):
             "reporter_professional_relationship", Button("continue", "Continue")
         )
 
-    class Meta:
-        model = BreachDetails
-        fields = ["reporter_professional_relationship"]
+    # class Meta:
+    #     model = BreachDetails
+    #     fields = ["reporter_professional_relationship"]
 
 
 class SummaryForm(forms.ModelForm):
@@ -114,10 +115,10 @@ class SummaryForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.layout = Layout(Button("submit", "Submit"))
 
-    class Meta:
-        model = BreachDetails
-        exclude = [
-            "reporter_email_address",
-            "reporter_full_name",
-            "reporter_professional_relationship",
-        ]
+    # class Meta:
+    #     model = BreachDetails
+    #     exclude = [
+    #         "reporter_email_address",
+    #         "reporter_full_name",
+    #         "reporter_professional_relationship",
+    #     ]

@@ -83,7 +83,7 @@ WSGI_APPLICATION = "report_trade_sanctions_breach.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "breach_prototype",
+        "NAME": "rab_mvp_prototype",
         "USER": os.environ["DB_USER"],
         "PASSWORD": os.environ["DB_PASSWORD"],
         "HOST": "localhost",
