@@ -288,7 +288,3 @@ class VerificationCode(models.Model):
 #     reporter_full_name = models.CharField(null=False)
 #     reporter_email_address = models.EmailField(null=False)
 #     reporter_professional_relationship = models.TextField(null=False)
-
-# class Report
-# class Org
-# class
