@@ -61,3 +61,12 @@ ref
 ICMS
 CompanyType
 company_non_uk
+EmailField
+TextInput(attrs={"id
+FormHelper
+Size
+MEDIUM
+Layout("reporter_verify_email
+choices=((choice
+PROFESSIONAL_RELATIONSHIP_CHOICES
+json validators
