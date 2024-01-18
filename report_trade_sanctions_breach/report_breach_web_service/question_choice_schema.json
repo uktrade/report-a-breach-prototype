@@ -1,0 +1,30 @@
+{
+   "type": "object",
+   "properties": {
+      "label": {
+         "type": "object",
+         "properties": {
+            "question": {
+               "type": [
+                  "string"
+               ]
+            },
+            "options": {
+               "type": [
+                  "array"
+               ],
+              "items": {
+                "type": [
+                  "string"
+                ]
+              }
+            },
+            "required": {
+               "type": [
+                  "boolean"
+               ]
+            }
+         }
+      }
+   }
+}

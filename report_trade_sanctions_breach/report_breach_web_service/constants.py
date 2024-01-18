@@ -15,3 +15,6 @@ PROFESSIONAL_RELATIONSHIP_CHOICES = (
     "I do not have a professional relationship with the company or person or I no longer have a professional "
     "relationship with them",
 )
+
+# Used to query the Question table for the associated question text
+QUESTION_LABELS = ["full_name", "email", "verify", "professional_relationship"]
